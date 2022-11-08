@@ -1,0 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+:root {
+    --main-color: #8f1919dc;
+    --font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
