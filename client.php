@@ -1,5 +1,5 @@
 <?php include "views/header.php" ?>
-    <div class="viewLoader">
+    <div id="viewLoader">
         <?php include "views/client/client.php" ?>
     </div>
     <?php include "views/nav.php" ?>
