@@ -71,6 +71,9 @@ $(document).on("click", ".view_client_info", function(e) {
         title: "client",
         path: "client/client.php",
         params: `read&id=${id}`,
+        callback: () => {
+            init_table();
+        }
 
     })
 });
