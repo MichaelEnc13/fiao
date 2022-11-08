@@ -11,6 +11,7 @@
 
 :root {
     --main-color: #8f1919dc;
+    --font-color: #303030e7;
 }
 
 .globalContainer {
@@ -33,4 +34,8 @@
 
 .nav__item {
     color: white;
+}
+
+h2 {
+    font-size: 25px;
 }
