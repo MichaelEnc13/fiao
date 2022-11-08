@@ -34,8 +34,16 @@
 
 .nav__item {
     color: white;
+    cursor: pointer;
 }
 
 h2 {
     font-size: 25px;
+    color: var(--font-color);
+    text-transform: uppercase;
+    font-weight: bolder;
+}
+
+.home__container {
+    padding: 15px;
 }
