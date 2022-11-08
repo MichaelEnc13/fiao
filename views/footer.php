@@ -1,4 +1,4 @@
-</div>
+
 <script src="src/js/viewLoader.js"></script>
 <script src="src/libs/datatable.js"></script>
 <script src="src/libs/all.min.js"></script>

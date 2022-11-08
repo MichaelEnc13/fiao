@@ -5,9 +5,32 @@
     list-style: none;
     text-decoration: none;
     font-size: 1rem;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    ;
 }
 
 :root {
     --main-color: #8f1919dc;
-    --font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.globalContainer {
+    display: grid;
+    grid-template-rows: 95% 5%;
+    height: 100vh;
+}
+
+.navbar {
+    background-color: var(--main-color);
+}
+
+.nav__wrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+
+.nav__item {
+    color: white;
 }
