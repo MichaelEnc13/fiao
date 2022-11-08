@@ -1,7 +1,6 @@
-<?php include "views/header.php" ?>
-    <div class="viewLoader">
-        <?php include "views/client/client.php" ?>
+<div class="home__container">
+    <h2>Jhon Doe</h2>
+    <div class="date__client">
+        <i>Total :</i>  <i>RD <span>000.00</span> DOP</i>
     </div>
-    <?php include "views/nav.php" ?>
 </div>
-<?php include "views/footer.php" ?>
