@@ -1,9 +1,8 @@
- 
-<div class="home__container">
+ <div class="home__container">
+     <div class="date__client">
+         <i class="amout">Total : RD <span>000.00</span> DOP</i>
+     </div>
     <h2>Jhon Doe</h2>
-    <div class="date__client">
-        <i class="amout">Total : RD <span>000.00</span> DOP</i>
-    </div>
     <div class="client_container">
         <h3>Datos del cliente</h3>
         <table id="table" class="table  table-hover">

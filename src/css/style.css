@@ -31,6 +31,9 @@
     text-align: center;
     height: 100%;
 }
+.view_client_info{
+    cursor: pointer;
+}
 
 .nav__item {
     color: white;
@@ -58,4 +61,11 @@ h2 {
     font-size: 20px;
     font-weight: 500;
     padding: 10px 0;
+}
+.client_container{
+    height: 500px;
+}
+.date__client{
+    position:absolute;
+    right: 30px;
 }

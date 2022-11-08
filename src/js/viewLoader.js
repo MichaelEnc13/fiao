@@ -77,3 +77,25 @@ $(document).on("click", ".view_client_info", function(e) {
 
     })
 });
+$(document).on("click", "#router-home", function(e) {
+    viewLoader({
+        title: "home",
+        path: "home/home.php",
+        params:"#globalContainer",
+        callback: () => {
+            init_table();
+        }
+
+    })
+});
+$(document).on("click", "#router-add", function(e) {
+    viewLoader({
+        title: "home",
+        path: "home/home.php",
+        params:"#globalContainer",
+        callback: () => {
+            init_table();
+        }
+
+    })
+});
