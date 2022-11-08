@@ -12,3 +12,5 @@
 </head>
 <body>
     
+<div class="globalContainer">
+

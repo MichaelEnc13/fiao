@@ -5,4 +5,5 @@
 <script src="src/js/script.js"></script>
 <script src="src/libs/sweetalert.js"></script>
 </body>
+
 </html>
