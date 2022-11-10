@@ -17,6 +17,7 @@
                     <td>Nombre</td>
                     <td>Monto total</td>
                     <td>-</td>
+                    <td>-</td>
 
                 </tr>
             </thead>
@@ -27,18 +28,21 @@
                     <td>15</td>
                     <td>Jhon Doe</td>
                     <td>RD 500.00 DOP</td>
+                    <td class="new_debt" data-id="15">Nueva</td>
                     <td class="view_client_info" data-id="15">Ver</td>
                 </tr>
                 <tr>
                     <td>15</td>
                     <td>Jhon sa</td>
                     <td>RD 500.00 DOP</td>
+                    <td class="new_debt" data-id="15">Nueva</td>
                     <td class="view_client_info" data-id="16">Ver</td>
                 </tr>
                 <tr>
                     <td>15</td>
                     <td>Jhon Doe</td>
                     <td>RD 500.00 DOP</td>
+                    <td class="new_debt" data-id="15">Nueva</td>
                     <td class="view_client_info" data-id="15">Ver</td>
                 </tr>
 

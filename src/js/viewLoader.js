@@ -5,7 +5,7 @@ function viewLoader(viewData) {
     v = viewData
         // esto lee la pagina actual en la que estamos
     var currentPage = location.pathname.substring(1);
-    var indexPage = v.indexPage
+    var indexPage = v.modal == true ? currentPage : v.indexPage;
     var title = v.title && v.modal != true ? v.title : currentPage; //este se usa para modificar el titulo de la pestaña denotando la sección actual
     document.title = title ? "Fiao | " + title : "titulo"; //aqui se aplica el title a la pestaña 
     var path = v.path ? v.path : console.warn("Se debe especificar la ruta de la vista"); //se lee la ruta de la vista o modulo que se quiere cargar 
@@ -29,12 +29,13 @@ function viewLoader(viewData) {
          que será cargada dentro de la misma, esto es opcional
     */
     var modal = v.modal ? v.modal : false; //decidir si la vista es modal o no
+
     var modalTitle = v.modalTitle ? v.modalTitle : ""; //titulo de la vista modal
 
     if (modal) { //mostrar las modales si es necesario
-        //  $("#modal__header__title").text(modalTitle);
-        // $("#modal_loader").css("display", "block");
-        // $(".overlay").css("display", "block");
+        $("#modal__title").text(modalTitle);
+        $("#modal").css("display", "block");
+        //$("#overlay").css("display", "block");
     } else {
         // $(".spinner").addClass("spinner-show");
 
@@ -46,6 +47,7 @@ Aqui se ejecutan todo el código con la informacion pasada en las opciones
     */
 
     $(viewContainer).load(`views/${path}${params}`, function(res) { //cargar la vista 
+
         if (typeof(callback) == "function") { callback(); }
 
         // $(".spinner").removeClass("spinner-show");
@@ -62,23 +64,19 @@ Aqui se ejecutan todo el código con la informacion pasada en las opciones
      history.replaceState(null, "", "contacto") -->   www.pagina.com/contacto
     */
 
-    history.replaceState(null, "", indexPage)
+    history.replaceState(null, '', indexPage)
 
 
 }
-$(document).on("click", ".view_client_info", function(e) {
-    var id = e.target.dataset.id;
-    viewLoader({
-        indexPage: "client",
-        title: "Cliente",
-        path: "client/client.php",
-        params: `read&id=${id}`,
-        callback: () => {
-            init_table();
-        }
+const ovon = () => {
 
-    })
-});
+    $("#overlay").css("display", "block");
+}
+const ovoff = () => {
+    $("#modal").css("display", "none");
+    $("#overlay").css("display", "none");
+}
+
 $(document).on("click", "#router-home", function(e) {
     viewLoader({
         indexPage: "home",
@@ -92,12 +90,58 @@ $(document).on("click", "#router-home", function(e) {
 });
 $(document).on("click", "#router-add", function(e) {
     viewLoader({
-        title: "home",
-        path: "home/home.php",
+        title: "Nuevo cliente",
+        indexPage: "new",
+        path: "new/new.php",
 
         callback: () => {
-            init_table();
+
         }
 
     })
+});
+
+
+$(document).on("click", function(e) {
+    let action = e.target.id ? e.target.id : e.target.classList[0];
+    let id;
+
+    switch (action) {
+        case "close_modal":
+            $("#modal").css("display", "none");
+            $("#overlay").css("display", "none");
+        case "overlay":
+            $("#modal").css("display", "none");
+            $("#overlay").css("display", "none");
+            break;
+        case "view_client_info": //ver la informacion del cliente registrado
+
+            id = e.target.dataset.id;
+            viewLoader({
+                indexPage: "client",
+                title: "Cliente",
+                path: "client/client.php",
+                params: `read&id=${id}`,
+                callback: () => {
+                    init_table();
+                }
+
+            })
+            break;
+        case "payment":
+            ovon();
+            viewLoader({
+                modal: true,
+                modalTitle: "Aplicar pago",
+                viewContainer: "#modal__body",
+                path: "client/add_payment.php"
+
+
+
+            })
+            break;
+
+    }
+
+
 });

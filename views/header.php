@@ -13,4 +13,5 @@
 <body>
     
 <div class="globalContainer">
-
+<?php  include "views/overlay.php"?>
+<?php  include "views/modal.php"?>

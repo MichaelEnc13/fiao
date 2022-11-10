@@ -5,7 +5,7 @@
      </div>
      <div class="data__client">
          <i class="amount">Total : RD <span>000.00</span> DOP</i>
-         <button>Aplicar pago</button>
+         <button class="btn" id="payment"  data-id="">Aplicar pago</button>
 
      </div>
      <div class="client_container">
