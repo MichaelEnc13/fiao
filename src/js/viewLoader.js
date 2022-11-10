@@ -5,8 +5,9 @@ function viewLoader(viewData) {
     v = viewData
         // esto lee la pagina actual en la que estamos
     var currentPage = location.pathname.substring(1);
+    var indexPage = v.indexPage
     var title = v.title && v.modal != true ? v.title : currentPage; //este se usa para modificar el titulo de la pestaña denotando la sección actual
-    document.title = title ? "nombrepagina | " + title : "titulo"; //aqui se aplica el title a la pestaña 
+    document.title = title ? "Fiao | " + title : "titulo"; //aqui se aplica el title a la pestaña 
     var path = v.path ? v.path : console.warn("Se debe especificar la ruta de la vista"); //se lee la ruta de la vista o modulo que se quiere cargar 
     var params = v.params ? "?" + v.params : ""; //parametros, si son necesarios para cargar una vista
     /* 
@@ -61,14 +62,15 @@ Aqui se ejecutan todo el código con la informacion pasada en las opciones
      history.replaceState(null, "", "contacto") -->   www.pagina.com/contacto
     */
 
-    history.replaceState(null, "", title)
+    history.replaceState(null, "", indexPage)
 
 
 }
 $(document).on("click", ".view_client_info", function(e) {
     var id = e.target.dataset.id;
     viewLoader({
-        title: "client",
+        indexPage: "client",
+        title: "Cliente",
         path: "client/client.php",
         params: `read&id=${id}`,
         callback: () => {
@@ -79,9 +81,9 @@ $(document).on("click", ".view_client_info", function(e) {
 });
 $(document).on("click", "#router-home", function(e) {
     viewLoader({
-        title: "home",
+        indexPage: "home",
+        title: "Inicio",
         path: "home/home.php",
-        params:"#globalContainer",
         callback: () => {
             init_table();
         }
@@ -92,7 +94,7 @@ $(document).on("click", "#router-add", function(e) {
     viewLoader({
         title: "home",
         path: "home/home.php",
-        params:"#globalContainer",
+
         callback: () => {
             init_table();
         }

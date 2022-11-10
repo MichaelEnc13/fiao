@@ -16,7 +16,7 @@
 
 .globalContainer {
     display: grid;
-    grid-template-rows: 95% 5%;
+    grid-template-rows: 93% 7%;
     height: 100vh;
 }
 
@@ -31,7 +31,8 @@
     text-align: center;
     height: 100%;
 }
-.view_client_info{
+
+.view_client_info {
     cursor: pointer;
 }
 
@@ -47,25 +48,48 @@ h2 {
     font-weight: bolder;
 }
 
-.home__container {
-    padding: 15px;
+.data_view_container {
+    display: grid;
 }
-.amout, .amout span{
+
+.data_view_container__header {
+    background-color: var(--main-color);
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+.new_client {
+    width: 50%;
+    border-radius: 15px;
+    border: none;
+    text-align: center;
+}
+
+.data_view_container__header h2 {
+    color: white;
+}
+
+.amount,
+.amount span {
     font-style: normal;
     font-size: 25px;
 }
-.date__client{
-    padding-top: 25px;
+
+.data__client {
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 10px;
+    padding: 15px;
 }
-.client_container h3{
+
+.client_container h3 {
     font-size: 20px;
     font-weight: 500;
     padding: 10px 0;
 }
-.client_container{
+
+.client_container {
     height: 500px;
-}
-.date__client{
-    position:absolute;
-    right: 30px;
+    padding: 15px;
 }
