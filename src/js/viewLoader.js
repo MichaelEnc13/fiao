@@ -179,7 +179,8 @@ $(document).on("click", function(e) {
                 modal: true,
                 modalTitle: "Agregar deuda",
                 viewContainer: "#modal__body",
-                path: "client/add_debt.php"
+                path: "client/add_debt.php",
+                params: `cid=${id}`
 
 
 
