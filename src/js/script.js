@@ -1,4 +1,4 @@
-const init_table = (y = 300) => {
+const init_table = (y = 350) => {
     $('#table').DataTable({
         destroy: true,
         scrollY: y,
