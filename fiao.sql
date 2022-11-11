@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 08-11-2022 a las 01:00:01
+-- Tiempo de generación: 11-11-2022 a las 02:31:47
 -- Versión del servidor: 8.0.21
 -- Versión de PHP: 7.3.21
 
@@ -30,9 +30,23 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `client`;
 CREATE TABLE IF NOT EXISTS `client` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` int NOT NULL,
+  `name` text COLLATE utf8_spanish2_ci NOT NULL,
+  `dir` text CHARACTER SET utf8 COLLATE utf8_spanish2_ci NOT NULL,
+  `tel` text COLLATE utf8_spanish2_ci NOT NULL,
+  `uid` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `client`
+--
+
+INSERT INTO `client` (`id`, `name`, `dir`, `tel`, `uid`) VALUES
+(33, 'sads', '', '8294455432', 1),
+(32, 'Ana', '', '', 1),
+(31, 'Andrea', '', '', 1),
+(29, 'Michael ', 'xxxx', '8294455432', 1),
+(30, 'Juana', '', '8294455432', 1);
 
 -- --------------------------------------------------------
 
@@ -47,7 +61,69 @@ CREATE TABLE IF NOT EXISTS `sold` (
   `description` text COLLATE utf8_spanish2_ci NOT NULL,
   `date` text COLLATE utf8_spanish2_ci NOT NULL,
   `cid` int NOT NULL,
+  `uid` int NOT NULL,
   PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `sold`
+--
+
+INSERT INTO `sold` (`id`, `amount`, `description`, `date`, `cid`, `uid`) VALUES
+(23, 320, 'Cebolla', '11-11-2022', 33, 1),
+(22, 320, 'Cebolla', '11-11-2022', 33, 1),
+(21, 50, '', '11-11-2022', 33, 1),
+(20, 320, '', '11-11-2022', 33, 1),
+(19, 200, '', '11-11-2022', 33, 1),
+(18, 8, '', '11-11-2022', 33, 1),
+(17, 320, '', '11-11-2022', 33, 1),
+(24, 600, '', '11-11-2022', 32, 1),
+(25, 8, '', '11-11-2022', 33, 1),
+(26, 8, 'HOLA MUNDO', '11-11-2022', 0, 1),
+(27, 320, '', '11-11-2022', 0, 1),
+(28, 100, '', '11-11-2022', 0, 1),
+(29, 500, '', '11-11-2022', 33, 1),
+(30, 320, '', '11-11-2022', 0, 1),
+(31, 200, '', '11-11-2022', 32, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `total`
+--
+
+DROP TABLE IF EXISTS `total`;
+CREATE TABLE IF NOT EXISTS `total` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `amount` int NOT NULL,
+  `cid` text COLLATE utf8_spanish2_ci NOT NULL,
+  `uid` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `total`
+--
+
+INSERT INTO `total` (`id`, `amount`, `cid`, `uid`) VALUES
+(1, 1000, '33', 1),
+(2, 700, '32', 1),
+(3, -952, '', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int NOT NULL,
+  `username` text COLLATE utf8_spanish2_ci NOT NULL,
+  `fname` text COLLATE utf8_spanish2_ci NOT NULL,
+  `lname` text COLLATE utf8_spanish2_ci NOT NULL,
+  `commerce` text COLLATE utf8_spanish2_ci NOT NULL,
+  `date` text COLLATE utf8_spanish2_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 COMMIT;
 
