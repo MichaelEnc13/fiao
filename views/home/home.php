@@ -1,9 +1,17 @@
+<?php 
+if (session_status() != 2) session_start();
+include file_exists("api/model/autoload.php")?"api/model/autoload.php":"../../api/model/autoload.php";
+$clients = Client::get_clients()['data']->fetchAll();
+
+ 
+ 
+ 
+
+?>
 <div class="home__container data_view_container">
     <div class="data_view_container__header">
         <h2>Clientes</h2>
-        <button class="new_client">
-            <i class="fa-solid fa-user-plus"></i>
-        </button>
+  
 
     </div>
 
@@ -21,31 +29,21 @@
 
                 </tr>
             </thead>
-
+   
             <tbody>
-
+            <?php foreach($clients as $client):
+                $total = Client::get_total( $client['id'])['data']->fetch()['amount'];
+                ?>
+                
                 <tr>
-                    <td>15</td>
-                    <td>Jhon Doe</td>
-                    <td>RD 500.00 DOP</td>
-                    <td class="new_debt" data-id="15">Nueva</td>
-                    <td class="view_client_info" data-id="15">Ver</td>
+                    <td><?php echo $client['id']?></td>
+                    <td><?php echo $client['name']?></td>
+                    <td><?php echo number_format($total,2) ;?></td>
+                    <td class="new_debt" data-cid="<?php echo $client['id']?>">Nueva</td>
+                    <td class="view_client_info" data-cid="<?php echo $client['id']?>">Ver</td>
                 </tr>
-                <tr>
-                    <td>15</td>
-                    <td>Jhon sa</td>
-                    <td>RD 500.00 DOP</td>
-                    <td class="new_debt" data-id="15">Nueva</td>
-                    <td class="view_client_info" data-id="16">Ver</td>
-                </tr>
-                <tr>
-                    <td>15</td>
-                    <td>Jhon Doe</td>
-                    <td>RD 500.00 DOP</td>
-                    <td class="new_debt" data-id="15">Nueva</td>
-                    <td class="view_client_info" data-id="15">Ver</td>
-                </tr>
-
+      
+    <?php endforeach?>
 
             </tbody>
         </table>

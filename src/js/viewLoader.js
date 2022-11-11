@@ -68,6 +68,43 @@ Aqui se ejecutan todo el código con la informacion pasada en las opciones
 
 
 }
+
+const start_session = (session_name, session_value) => {
+    $.ajax({
+        type: "POST",
+        url: "api/controller/session.controller.php",
+        data: { newSession: true, session_name: session_name, session_value: session_value }
+
+    });
+
+}
+
+const stop_session = (session_name) => { //detiene las session especificada en el parametro
+    $.ajax({
+        type: "POST",
+        url: "api/controller/session.controller.php",
+        data: { stopSession: true, session_name: session_name }
+
+    });
+
+}
+
+function load_client_info(id) {
+    viewLoader({
+        indexPage: "client",
+        title: "Cliente",
+        path: "client/client.php",
+        params: `client&id=${id}`,
+        callback: () => {
+            start_session("cid", id)
+            init_table();
+        }
+
+    })
+
+}
+
+
 const ovon = () => {
 
     $("#overlay").css("display", "block");
@@ -84,6 +121,7 @@ $(document).on("click", "#router-home", function(e) {
         path: "home/home.php",
         callback: () => {
             init_table();
+            stop_session("cid")
         }
 
     })
@@ -116,20 +154,13 @@ $(document).on("click", function(e) {
             break;
         case "view_client_info": //ver la informacion del cliente registrado
 
-            id = e.target.dataset.id;
-            viewLoader({
-                indexPage: "client",
-                title: "Cliente",
-                path: "client/client.php",
-                params: `read&id=${id}`,
-                callback: () => {
-                    init_table();
-                }
-
-            })
+            id = e.target.dataset.cid;
+            load_client_info(id)
             break;
         case "payment":
             ovon();
+            id = e.target.dataset.cid;
+            start_session("cid", id)
             viewLoader({
                 modal: true,
                 modalTitle: "Aplicar pago",
@@ -140,7 +171,20 @@ $(document).on("click", function(e) {
 
             })
             break;
+        case "new_debt":
+            ovon();
+            id = e.target.dataset.cid;
+            start_session("cid", id)
+            viewLoader({
+                modal: true,
+                modalTitle: "Agregar deuda",
+                viewContainer: "#modal__body",
+                path: "client/add_debt.php"
 
+
+
+            })
+            break;
     }
 
 
