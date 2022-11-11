@@ -38,6 +38,6 @@
     ],
     "start_url": "/",
     "display": "standalone",
-    "theme_color": "rgb(201, 103, 103)"
+    "theme_color": "#8f1919dc"
 
 }
