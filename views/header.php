@@ -1,3 +1,9 @@
+<?php 
+if(session_status() != 2) session_start();
+$_SESSION['uid'] = 1;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +14,9 @@
     <link rel="stylesheet" href="src/libs/all.min.css">
     <script src="src/libs/jquery.min.js"></script>
     <link rel="stylesheet" href="src/libs/datatable.css">
+    <link rel="shortcut icon" href="src/assets/iconos/favicon.png" type="image/x-icon">
+    <script src="src/js/app.js"></script>
+    <link rel="manifest" href="manifest.json">
     <title>Fiao</title>
 </head>
 <body>
