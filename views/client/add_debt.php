@@ -2,7 +2,7 @@
  
 if(session_status()!=2)session_start();
 include file_exists("api/model/autoload.php")?"api/model/autoload.php":"../../api/model/autoload.php";
-$id = isset($_GET["id"]) ? $_GET['id']:$_SESSION['cid'];
+$id = isset($_GET["cid"]) ? $_GET['cid']:$_SESSION['cid'];
 $client = Client::get_client_info($id)['data']->fetch()['name'];
 ?>
 <div class="new_payment">
