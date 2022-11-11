@@ -3,7 +3,7 @@ if(session_status() != 2) session_start();
 $_SESSION['uid'] = 1;
 $version = 1.4;
 ?>
-<?php echo "?version=".$version?>
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
