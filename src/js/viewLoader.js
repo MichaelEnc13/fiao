@@ -89,6 +89,18 @@ const stop_session = (session_name) => { //detiene las session especificada en e
 
 }
 
+function load_nav() {
+    viewLoader({
+        path: "nav.php",
+        viewContainer: "#nav_container"
+    })
+
+}
+
+function hide_nav() {
+    $("#nav_container").html("");
+}
+
 function load_client_info(id) {
     viewLoader({
         indexPage: "client",
@@ -105,16 +117,23 @@ function load_client_info(id) {
 }
 
 
-const ovon = () => {
-
-    $("#overlay").css("display", "block");
+function load_login() {
+    viewLoader({
+        title: "Iniciar sesión",
+        path: "signin/signin.php",
+        indexPage: "signin"
+    })
 }
-const ovoff = () => {
-    $("#modal").css("display", "none");
-    $("#overlay").css("display", "none");
+
+function load_register() {
+    viewLoader({
+        title: "Registrarse",
+        path: "signup/signup.php",
+        indexPage: "signup"
+    })
 }
 
-$(document).on("click", "#router-home", function(e) {
+function load_home() {
     viewLoader({
         indexPage: "home",
         title: "Inicio",
@@ -125,6 +144,19 @@ $(document).on("click", "#router-home", function(e) {
         }
 
     })
+}
+
+const ovon = () => {
+
+    $("#overlay").css("display", "block");
+}
+const ovoff = () => {
+    $("#modal").css("display", "none");
+    $("#overlay").css("display", "none");
+}
+
+$(document).on("click", "#router-home", function(e) {
+    load_home();
 });
 $(document).on("click", "#router-add", function(e) {
     viewLoader({
@@ -151,6 +183,12 @@ $(document).on("click", function(e) {
         case "overlay":
             $("#modal").css("display", "none");
             $("#overlay").css("display", "none");
+            break;
+        case "load_login": //carga el login desde el registro
+            load_login();
+            break;
+        case "load_register": //carga el registro desde el login
+            load_register();
             break;
         case "view_client_info": //ver la informacion del cliente registrado
 

@@ -7,6 +7,9 @@
         <li id="router-add" class="nav__item">
             Nuevo
         </li>
+        <li id="logout" class="nav__item">
+            Salir
+        </li>
 
     </ul>
 

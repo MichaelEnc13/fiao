@@ -1,7 +1,7 @@
 <?php
 include "../model/autoload.php";
 if (session_status() != 2) session_start();
-$uid = $_SESSION['uid'] = 1;
+$uid = $_SESSION['user']['id'] ;
 $date = date("d-m-Y");
 if (isset($_POST['addClient'])) :
    $name = $_POST['name'];

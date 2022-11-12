@@ -1,11 +1,18 @@
 <?php 
 if(session_status() != 2) session_start();
-$_SESSION['uid'] = 1;
+/*  if(!isset($_SESSION['user'])):
+    header("Location:signin");
+ endif; */
+ 
+ if (!isset($_SESSION['user']) and substr($_SERVER['REQUEST_URI'], -6) !== "signin") :
+    header("location: signin");
+endif; 
 $version = 1.4;
+ 
 ?>
  
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

@@ -15,14 +15,14 @@ class Client
     public static function get_clients()
     {
         $query = "SELECT * FROM client WHERE uid = ?";
-        $array = array($_SESSION['uid']);
+        $array = array($_SESSION['user']['id']);
         return Db::queries($query, $array);
     }
 
     public static function get_client_info($id)
     {
         $query = "SELECT * FROM client WHERE id=? AND uid = ?";
-        $array = array($id,$_SESSION['uid']);
+        $array = array($id,$_SESSION['user']['id']);
         return Db::queries($query, $array);
     }
 
@@ -37,19 +37,19 @@ class Client
 
     public static function get_client_debt($id){
         $query = "SELECT * FROM sold WHERE cid = ? AND uid = ?";
-        $array = array($id,$_SESSION['uid']);
+        $array = array($id,$_SESSION['user']['id']);
         return Db::queries($query, $array);
     }
     public static function get_total($id){
         $query = "SELECT sum(amount) as amount FROM total WHERE cid = ? AND uid = ?";
-        $array = array($id,$_SESSION['uid']);
+        $array = array($id,$_SESSION['user']['id']);
         return Db::queries($query, $array);
     }
 
     public static function create_total($amount,$cid){
     
         $query = "INSERT INTO total (amount,cid,uid) VALUES (?,?,?)";
-        $array = array($amount, $cid,$_SESSION['uid']);
+        $array = array($amount, $cid,$_SESSION['user']['id']);
         return Db::queries($query, $array);
     }
 
@@ -57,7 +57,7 @@ class Client
     public static function update_total($amount,$action,$id){
         $query = $action == true? "UPDATE total SET amount  = amount + ? WHERE cid = ? AND uid = ?":
         "UPDATE total SET amount  = amount - ? WHERE cid = ? AND uid = ?";
-        $array = array($amount,$id,$_SESSION['uid']);
+        $array = array($amount,$id,$_SESSION['user']['id']);
         return Db::queries($query, $array);
     }
 }
