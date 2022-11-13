@@ -28,6 +28,7 @@ $(document).on("click", function(e) {
         case "create_account":
             var form = document.querySelector(".form");
             var data = new FormData(form);
+            spinnerOn()
             data.append("create_user", true)
             $.ajax({
                 type: "POST",
@@ -48,7 +49,7 @@ $(document).on("click", function(e) {
                         }
                     }
 
-
+                    spinnerOff()
 
                 }
             });
@@ -57,6 +58,7 @@ $(document).on("click", function(e) {
             var form = document.querySelector(".form");
             var data = new FormData(form);
             data.append("login", true)
+            spinnerOn()
             $.ajax({
                 type: "POST",
                 url: "api/controller/users.controller.php",
@@ -85,6 +87,7 @@ $(document).on("click", function(e) {
                                 break;
                         }
                     }
+                    spinnerOff()
 
 
 

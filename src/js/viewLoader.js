@@ -102,12 +102,14 @@ function hide_nav() {
 }
 
 function load_client_info(id) {
+    spinnerOn()
     viewLoader({
         indexPage: "client",
         title: "Cliente",
         path: "client/client.php",
         params: `client&id=${id}`,
         callback: () => {
+            spinnerOff()
             start_session("cid", id)
             init_table();
         }
@@ -134,11 +136,13 @@ function load_register() {
 }
 
 function load_home() {
+    spinnerOn()
     viewLoader({
         indexPage: "home",
         title: "Inicio",
         path: "home/home.php",
         callback: () => {
+            spinnerOff()
             init_table();
             stop_session("cid")
         }
@@ -155,17 +159,24 @@ const ovoff = () => {
     $("#overlay").css("display", "none");
 }
 
+const spinnerOn = () => {
+    $(".spinner").css("display", "block");
+}
+const spinnerOff = () => {
+    $(".spinner").css("display", "none");
+}
 $(document).on("click", "#router-home", function(e) {
     load_home();
 });
 $(document).on("click", "#router-add", function(e) {
+    spinnerOn();
     viewLoader({
         title: "Nuevo cliente",
         indexPage: "new",
         path: "new/new.php",
 
         callback: () => {
-
+            spinnerOff();
         }
 
     })
