@@ -7,7 +7,7 @@ if(session_status() != 2) session_start();
  if (!isset($_SESSION['user']) and substr($_SERVER['REQUEST_URI'], -6) !== "signin") :
     header("location: signin");
 endif; 
-$version = "1.6.1";
+$version = "1.6.2";
  
 ?>
  
