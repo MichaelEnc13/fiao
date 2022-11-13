@@ -28,8 +28,8 @@ class Client
 
     public static function create_debt($amount, $descr, $date,$cid,$uid)
     {
-        $query = "INSERT INTO sold (amount,description,date,cid,uid) VALUES (?,?,?,?,?)";
-        $array = array($amount, $descr, $date, $cid ,$uid);
+        $query = "INSERT INTO sold (amount,description,date,month,year,cid,uid) VALUES (?,?,?,?,?,?,?)";
+        $array = array($amount, $descr, $date,date("m"),date("y"), $cid ,$uid);
         return Db::queries($query, $array);
     }
 
