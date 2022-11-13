@@ -26,7 +26,7 @@
 
          </div>
 
-         <table id="table" class="table  table-hover">
+         <table id="table" class="table  table-hover display nowrap dataTable dtr-inline collapsed">
 
              <thead>
                  <tr>
