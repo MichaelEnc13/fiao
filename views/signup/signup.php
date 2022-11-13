@@ -4,7 +4,7 @@
         
     </div>
     <h2>Registrate</h2>
-    <form class="form">
+    <form class="form" id="register">
         <div class="form-control">
             <label for="">Nombre</label>
             <input type="text" name="fname" class="input">

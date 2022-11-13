@@ -27,7 +27,7 @@ $(document).on("click", function(e) {
     switch (id) {
 
         case "create_account":
-            form = document.querySelector(".form");
+            form = document.querySelector(".form#register");
             data = new FormData(form);
             spinnerOn()
             data.append("create_user", true)
@@ -56,7 +56,7 @@ $(document).on("click", function(e) {
             });
             break;
         case "login":
-            form = document.querySelector(".form");
+            form = document.querySelector(".form#login");
             data = new FormData(form);
             data.append("login", true)
             spinnerOn()
@@ -150,7 +150,7 @@ $(document).on("click", function(e) {
 
             break;
         case "add_new_debt":
-            form = document.querySelector(".form");
+            form = document.querySelector(".form#newDebt");
             data = new FormData(form);
             cid = e.target.dataset.cid;
             data.append("cid", cid)
