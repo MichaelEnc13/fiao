@@ -150,6 +150,36 @@ function load_home() {
     })
 }
 
+function load_me() {
+    spinnerOn()
+    viewLoader({
+        indexPage: "me",
+        title: "Inicio",
+        path: "me/me.php",
+        callback: () => {
+            spinnerOff()
+
+
+        }
+
+    })
+}
+
+function load_chart() {
+    spinnerOn()
+    viewLoader({
+        indexPage: "history",
+        title: "Gráfica",
+        path: "history/history.php",
+        callback: () => {
+            spinnerOff()
+
+
+        }
+
+    })
+}
+
 const ovon = () => {
 
     $("#overlay").css("display", "block");
@@ -167,6 +197,12 @@ const spinnerOff = () => {
 }
 $(document).on("click", "#router-home", function(e) {
     load_home();
+});
+$(document).on("click", "#router-me", function(e) {
+    load_me();
+});
+$(document).on("click", "#router-chart", function(e) {
+    load_chart();
 });
 $(document).on("click", "#router-add", function(e) {
     spinnerOn();

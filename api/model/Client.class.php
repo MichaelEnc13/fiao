@@ -60,4 +60,11 @@ class Client
         $array = array($amount,$id,$_SESSION['user']['id']);
         return Db::queries($query, $array);
     }
+
+    public static function get_sold($month,$year){//Grafico para las ventas fiadas
+        $query = "SELECT sum(amount) as amount FROM sold WHERE month = ? AND year = ? AND uid = ?";
+        $array = array($month,$year,$_SESSION['user']['id']);
+        return Db::queries($query, $array);
+    }
+
 }
