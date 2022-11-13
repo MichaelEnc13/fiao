@@ -37,10 +37,10 @@ $(document).on("click", function(e) {
                 processData: false,
                 success: function(res) {
                     getErr = res.match("ERR_") ? res.match("ERR_")[0] : false;
-                    if (getErr != "ERR_") {
+                    if (getErr != "ERR_") { //exito
                         load_login();
-                        console.log(res);
-                    } else {
+                        //console.log(res);
+                    } else { //errores
                         switch (getErr) {
                             case "ERR_1048":
                                 //swal("Hay campos ",)

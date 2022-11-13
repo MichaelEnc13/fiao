@@ -7,6 +7,7 @@ class Db
     private const USER_LOCAL = "root";
     private const PASS_LOCAL = "";
     private const SERVER_LOCAL = "mysql:hostname=localhost;dbname=fiao";
+    
     private const USER = "u790594714_fiao";
     private const PASS = "DotsellSolPass2022@";
     private const SERVER = "mysql:hostname=localhost;dbname=u790594714_fiao";

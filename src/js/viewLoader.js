@@ -191,7 +191,6 @@ $(document).on("click", function(e) {
             load_register();
             break;
         case "view_client_info": //ver la informacion del cliente registrado
-
             id = e.target.dataset.cid;
             load_client_info(id)
             break;
