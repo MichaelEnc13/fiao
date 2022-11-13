@@ -173,6 +173,7 @@ function load_chart() {
         path: "history/history.php",
         callback: () => {
             spinnerOff()
+            init_chart()
 
 
         }
