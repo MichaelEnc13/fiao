@@ -17,7 +17,7 @@ $clients = Client::get_clients()['data']->fetchAll();
 
     <div class="client_container">
         <h3>Lista de clientes</h3>
-        <table id="table" class="table  table-hover">
+        <table id="table" class="table  table-hover display nowrap dataTable dtr-inline collapsed">
 
             <thead>
                 <tr>
