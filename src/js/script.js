@@ -120,31 +120,31 @@ $(document).on("click", function(e) {
             data.append("addClient", true)
             console.log(form);
             console.log(data.get("name"));
-            // spinnerOn()
-            /*   $.ajax({
-                  type: "POST",
-                  url: "api/controller/client.controller.php",
-                  data,
-                  contentType: false,
-                  processData: false,
-                  success: function(res) {
-                      getErr = res.match("ERR_") ? res.match("ERR_")[0] : false;
-                      if (getErr != "ERR_") {
-                          load_client_info(res)
-                          console.log(res);
-                      } else {
-                          switch (getErr) {
-                              case "ERR_1048":
-                                  //swal("Hay campos ",)
-                                  break;
-                          }
-                      }
-                      load_client_info(res)
-                      spinnerOff()
+            spinnerOn()
+            $.ajax({
+                type: "POST",
+                url: "api/controller/client.controller.php",
+                data,
+                contentType: false,
+                processData: false,
+                success: function(res) {
+                    getErr = res.match("ERR_") ? res.match("ERR_")[0] : false;
+                    if (getErr != "ERR_") {
+                        load_client_info(res)
+                        console.log(res);
+                    } else {
+                        switch (getErr) {
+                            case "ERR_1048":
+                                //swal("Hay campos ",)
+                                break;
+                        }
+                    }
+                    load_client_info(res)
+                    spinnerOff()
 
 
-                  }
-              }); */
+                }
+            });
 
 
 
