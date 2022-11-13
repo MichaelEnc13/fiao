@@ -16,12 +16,14 @@ class Db
     private static function connect()
     {
 
-        if ($_SERVER['REMOTE_ADDR'] == "::1") :
+      if ($_SERVER['REMOTE_ADDR'] == "::1") :
 
             return new PDO(Db::SERVER_LOCAL, Db::USER_LOCAL, Db::PASS_LOCAL);
         else :
             return new PDO(Db::SERVER, Db::USER, Db::PASS);
-        endif;
+        endif; 
+
+ 
     }
 
     public static function queries($query, $values)

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 11-11-2022 a las 02:31:47
+-- Tiempo de generación: 13-11-2022 a las 20:10:18
 -- Versión del servidor: 8.0.21
 -- Versión de PHP: 7.3.21
 
@@ -35,13 +35,16 @@ CREATE TABLE IF NOT EXISTS `client` (
   `tel` text COLLATE utf8_spanish2_ci NOT NULL,
   `uid` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `client`
 --
 
 INSERT INTO `client` (`id`, `name`, `dir`, `tel`, `uid`) VALUES
+(36, 'Michael ', '', '', 6),
+(35, 'Michael Encarnacion', '', '', 1),
+(34, 'Michael ', '', '', 1),
 (33, 'sads', '', '8294455432', 1),
 (32, 'Ana', '', '', 1),
 (31, 'Andrea', '', '', 1),
@@ -106,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `total` (
 --
 
 INSERT INTO `total` (`id`, `amount`, `cid`, `uid`) VALUES
-(1, 1000, '33', 1),
+(1, 500, '33', 1),
 (2, 700, '32', 1),
 (3, -952, '', 1);
 
@@ -118,13 +121,23 @@ INSERT INTO `total` (`id`, `amount`, `cid`, `uid`) VALUES
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `username` text COLLATE utf8_spanish2_ci NOT NULL,
   `fname` text COLLATE utf8_spanish2_ci NOT NULL,
   `lname` text COLLATE utf8_spanish2_ci NOT NULL,
+  `password` text COLLATE utf8_spanish2_ci NOT NULL,
   `commerce` text COLLATE utf8_spanish2_ci NOT NULL,
-  `date` text COLLATE utf8_spanish2_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+  `date` text COLLATE utf8_spanish2_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `fname`, `lname`, `password`, `commerce`, `date`) VALUES
+(1, 'Frito', 'Michael', 'Encarnación', '$2y$10$gPhFkPR.nujUVgyrkQO3OuO.Ht9Xg462JSMjxQvos9mI/Gp3M/5bO', 'Esq frito', ''),
+(6, 'jd1', 'Juana', 'Diaz', '$2y$10$oCjTMvl76YLXhmSq5hqece8iv/t3.DeIsAQjmIvQJo21uJwzKWsNW', 'ss', '');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
