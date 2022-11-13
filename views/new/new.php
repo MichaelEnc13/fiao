@@ -8,7 +8,7 @@
 
     </div>
 
-        <form  onsubmit="return false" class="form">
+        <form  onsubmit="return false" class="form" id="newClient">
             <div class="form-control">
                 <label for="">Nombre</label>
                 <input type="text"  class="input" name="name" placeholder="..." required>
