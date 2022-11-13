@@ -117,6 +117,7 @@ $(document).on("click", function(e) {
             var form = document.querySelector(".form");
             var data = new FormData(form);
             data.append("addClient", true)
+            spinnerOn()
             $.ajax({
                 type: "POST",
                 url: "api/controller/client.controller.php",
@@ -136,6 +137,7 @@ $(document).on("click", function(e) {
                         }
                     }
 
+                    spinnerOff()
 
 
                 }
