@@ -1,4 +1,4 @@
-const init_table = (y = 350) => {
+const init_table = (y = window.screen.height > 896 ? 350 : 250) => {
     $('#table').DataTable({
         destroy: true,
         scrollY: y,
@@ -12,6 +12,7 @@ const init_table = (y = 350) => {
 
     });
 }
+
 init_table()
 
 
@@ -20,14 +21,15 @@ init_table()
 $(document).on("click", function(e) {
 
     let id = e.target.id;
-
     let getErr;
-
+    let form;
+    let data;
 
     switch (id) {
+
         case "create_account":
-            var form = document.querySelector(".form");
-            var data = new FormData(form);
+            form = document.querySelector(".form#register");
+            data = new FormData(form);
             spinnerOn()
             data.append("create_user", true)
             $.ajax({
@@ -55,8 +57,8 @@ $(document).on("click", function(e) {
             });
             break;
         case "login":
-            var form = document.querySelector(".form");
-            var data = new FormData(form);
+            form = document.querySelector(".form#login");
+            data = new FormData(form);
             data.append("login", true)
             spinnerOn()
             $.ajax({
@@ -96,7 +98,7 @@ $(document).on("click", function(e) {
             break;
         case "logout":
 
-            var data = {
+            data = {
                 logout: true
             }
             $.ajax({
@@ -114,9 +116,12 @@ $(document).on("click", function(e) {
             });
             break;
         case "addClient":
-            var form = document.querySelector(".form");
-            var data = new FormData(form);
+            form = document.querySelector(".form#newClient");
+            data = new FormData(form);
             data.append("addClient", true)
+            console.log(form);
+            console.log(data.get("name"));
+            spinnerOn()
             $.ajax({
                 type: "POST",
                 url: "api/controller/client.controller.php",
@@ -127,7 +132,7 @@ $(document).on("click", function(e) {
                     getErr = res.match("ERR_") ? res.match("ERR_")[0] : false;
                     if (getErr != "ERR_") {
                         load_client_info(res)
-                            //console.log(res);
+                        console.log(res);
                     } else {
                         switch (getErr) {
                             case "ERR_1048":
@@ -135,7 +140,8 @@ $(document).on("click", function(e) {
                                 break;
                         }
                     }
-
+                    load_client_info(res)
+                    spinnerOff()
 
 
                 }
@@ -145,8 +151,8 @@ $(document).on("click", function(e) {
 
             break;
         case "add_new_debt":
-            var form = document.querySelector(".form");
-            var data = new FormData(form);
+            form = document.querySelector(".form#newDebt");
+            data = new FormData(form);
             cid = e.target.dataset.cid;
             data.append("cid", cid)
             data.append("add_new_debt", true)
@@ -179,8 +185,8 @@ $(document).on("click", function(e) {
 
             break;
         case "apply_payment":
-            var form = document.querySelector(".form");
-            var data = new FormData(form);
+            form = document.querySelector(".form");
+            data = new FormData(form);
             cid = e.target.dataset.cid;
             data.append("cid", cid)
             data.append("apply_payment", true)

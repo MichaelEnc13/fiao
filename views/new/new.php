@@ -8,19 +8,19 @@
 
     </div>
 
-        <form  onsubmit="return false" class="form">
+        <form  onsubmit="return false" class="form" id="newClient">
             <div class="form-control">
                 <label for="">Nombre</label>
-                <input type="text"  class="input" name="name" placeholder="...">
+                <input type="text"  class="input" name="name" placeholder="..." required>
             </div>
             <div class="form-control">
                 <label for="">Numero de contacto</label>
-                <input type="text" class="input"  name="tel" placeholder="...">
+                <input type="text" class="input"  name="tel" placeholder="..." >
             </div>
             <div class="form-control">
                 <label for="">Ubicación</label>
-                <input type="text" class="input"  name="dir" placeholder="...">
+                <input type="text" class="input"  name="dir" placeholder="..." >
             </div>
-            <button class="btn" id="addClient" name="addClient">Agregar</button>
+            <button class="btn" id="addClient">Agregar</button>
         </form>
 </div>

@@ -7,7 +7,7 @@ $client = Client::get_client_info($id)['data']->fetch()['name'];
 ?>
 <div class="new_payment">
     <h3>Cliente: <?php echo $client?></h3>
-    <form class="form" onsubmit="return false">
+    <form class="form" onsubmit="return false" id="newDebt">
         <div class="form-control">
             <label for="">Ingresa el monto</label>
             <input type="text" name="amount" class="input" placeholder="$$$">

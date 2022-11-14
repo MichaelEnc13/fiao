@@ -7,7 +7,7 @@ if(session_status() != 2) session_start();
  if (!isset($_SESSION['user']) and substr($_SERVER['REQUEST_URI'], -6) !== "signin") :
     header("location: signin");
 endif; 
-$version = 1.5;
+$version = "1.6.3";
  
 ?>
  
@@ -23,8 +23,10 @@ $version = 1.5;
     <script src="src/libs/jquery.min.js"></script>
     <link rel="stylesheet" href="src/libs/datatable.css">
     <link rel="shortcut icon" href="src/assets/iconos/favicon.png" type="image/x-icon">
+    <script src="src/js/chart.js"></script>
     <script src="src/js/app.js"></script>
     <link rel="manifest" href="manifest.json<?php echo "?version=".$version?>">
+    <meta name="description" content="Administra las cuentas por pagar de tus clientes de forma sencilla con EL FIAO.">
     <title>Fiao</title>
 </head>
 <body>

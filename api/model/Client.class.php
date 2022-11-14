@@ -28,8 +28,8 @@ class Client
 
     public static function create_debt($amount, $descr, $date,$cid,$uid)
     {
-        $query = "INSERT INTO sold (amount,description,date,cid,uid) VALUES (?,?,?,?,?)";
-        $array = array($amount, $descr, $date, $cid ,$uid);
+        $query = "INSERT INTO sold (amount,description,date,month,year,cid,uid) VALUES (?,?,?,?,?,?,?)";
+        $array = array($amount, $descr, $date,date("m"),date("y"), $cid ,$uid);
         return Db::queries($query, $array);
     }
 
@@ -60,4 +60,11 @@ class Client
         $array = array($amount,$id,$_SESSION['user']['id']);
         return Db::queries($query, $array);
     }
+
+    public static function get_sold($month,$year){//Grafico para las ventas fiadas
+        $query = "SELECT sum(amount) as amount FROM sold WHERE month = ? AND year = ? AND uid = ?";
+        $array = array($month,$year,$_SESSION['user']['id']);
+        return Db::queries($query, $array);
+    }
+
 }
