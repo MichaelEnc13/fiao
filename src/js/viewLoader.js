@@ -111,7 +111,7 @@ function load_client_info(id) {
         callback: () => {
             spinnerOff()
             start_session("cid", id)
-            init_table();
+            init_table(180);
         }
 
     })

@@ -1,4 +1,4 @@
-const init_table = (y = 350) => {
+const init_table = (y = window.screen.height > 896 ? 350 : 250) => {
     $('#table').DataTable({
         destroy: true,
         scrollY: y,
@@ -12,6 +12,7 @@ const init_table = (y = 350) => {
 
     });
 }
+
 init_table()
 
 

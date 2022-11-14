@@ -257,6 +257,16 @@ h2 {
     padding: 15px;
 }
 
+.branding_info {
+    text-align: center;
+}
+
+.branding_info .brand {
+    color: #3891F6;
+    font-weight: bold;
+    font-size: 25px;
+}
+
 
 /* Gráfico */
 
@@ -274,4 +284,13 @@ h2 {
     display: block;
     margin: auto;
     border-radius: 100%;
+}
+
+@media only screen and (max-width: 375px) {
+    .data_view_container__header h2 {
+        font-size: 20px
+    }
+    .amount {
+        font-size: 18px
+    }
 }
