@@ -140,7 +140,7 @@ $(document).on("click", function(e) {
                                 break;
                         }
                     }
-                    load_client_info(res)
+
                     spinnerOff()
 
 

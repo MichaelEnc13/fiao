@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 13-11-2022 a las 22:46:15
+-- Tiempo de generación: 15-11-2022 a las 02:08:04
 -- Versión del servidor: 8.0.21
 -- Versión de PHP: 7.3.21
 
@@ -35,13 +35,14 @@ CREATE TABLE IF NOT EXISTS `client` (
   `tel` text COLLATE utf8_spanish2_ci NOT NULL,
   `uid` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=42 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `client`
 --
 
 INSERT INTO `client` (`id`, `name`, `dir`, `tel`, `uid`) VALUES
+(40, 'Michael ', '', '', 1),
 (36, 'Michael ', '', '', 6),
 (35, 'Michael Encarnacion', '', '', 1),
 (34, 'Michael ', '', '', 1),
@@ -49,7 +50,9 @@ INSERT INTO `client` (`id`, `name`, `dir`, `tel`, `uid`) VALUES
 (32, 'Ana', '', '', 1),
 (31, 'Andrea', '', '', 1),
 (29, 'Michael ', 'xxxx', '8294455432', 1),
-(30, 'Juana', '', '8294455432', 1);
+(30, 'Juana', '', '8294455432', 1),
+(39, 'ana', '', '', 1),
+(41, 'Michael Encarnacion', '', '', 1);
 
 -- --------------------------------------------------------
 
@@ -68,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `sold` (
   `cid` int NOT NULL,
   `uid` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `sold`
@@ -89,7 +92,26 @@ INSERT INTO `sold` (`id`, `amount`, `description`, `date`, `month`, `year`, `cid
 (28, 100, '', '11-11-2022', 0, 0, 0, 1),
 (29, 500, '', '11-11-2022', 0, 0, 33, 1),
 (30, 320, '', '11-11-2022', 0, 0, 0, 1),
-(31, 200, '', '11-11-2022', 0, 0, 32, 1);
+(31, 200, '', '11-11-2022', 0, 0, 32, 1),
+(32, 8, '', '13-11-2022', 0, 0, 39, 1),
+(33, 8, '', '13-11-2022', 0, 0, 41, 1),
+(34, 50, '', '13-11-2022', 0, 0, 41, 1),
+(35, 50, '', '13-11-2022', 0, 0, 41, 1),
+(36, 50, '', '13-11-2022', 0, 0, 41, 1),
+(37, 50, '', '13-11-2022', 0, 0, 41, 1),
+(38, 50, '', '13-11-2022', 0, 0, 41, 1),
+(39, 50, '', '13-11-2022', 0, 0, 41, 1),
+(40, 50, '', '13-11-2022', 0, 0, 41, 1),
+(41, 50, '', '13-11-2022', 0, 0, 41, 1),
+(42, 50, '', '13-11-2022', 0, 0, 41, 1),
+(43, 8, '', '13-11-2022', 0, 0, 41, 1),
+(44, 8, '', '13-11-2022', 0, 0, 41, 1),
+(45, 8, '', '13-11-2022', 0, 0, 41, 1),
+(46, 8, '', '13-11-2022', 0, 0, 41, 1),
+(47, 8, '', '13-11-2022', 0, 0, 41, 1),
+(48, 200, '', '13-11-2022', 0, 0, 41, 1),
+(49, 50, '', '13-11-2022', 0, 0, 41, 1),
+(50, 100, '', '13-11-2022', 0, 0, 40, 1);
 
 -- --------------------------------------------------------
 
@@ -104,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `total` (
   `cid` text COLLATE utf8_spanish2_ci NOT NULL,
   `uid` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
 
 --
 -- Volcado de datos para la tabla `total`
@@ -113,7 +135,10 @@ CREATE TABLE IF NOT EXISTS `total` (
 INSERT INTO `total` (`id`, `amount`, `cid`, `uid`) VALUES
 (1, 300, '33', 1),
 (2, 700, '32', 1),
-(3, -952, '', 1);
+(3, -952, '', 1),
+(4, 8, '39', 1),
+(5, 748, '41', 1),
+(6, 100, '40', 1);
 
 -- --------------------------------------------------------
 
