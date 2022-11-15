@@ -26,6 +26,7 @@ $clients = Client::get_clients()['data']->fetchAll();
                     <td>Monto total</td>
                     <td>-</td>
                     <td>-</td>
+                    <td>-</td>
 
                 </tr>
             </thead>
@@ -40,6 +41,7 @@ $clients = Client::get_clients()['data']->fetchAll();
                     <td><?php echo $client['name']?></td>
                     <td><?php echo number_format($total,2) ;?></td>
                     <td class="new_debt" data-cid="<?php echo $client['id']?>">Nueva</td>
+                    <td id="delete_client" data-cid="<?php echo $client['id']?>">Borrar</td>
                     <td class="view_client_info" data-cid="<?php echo $client['id']?>">Ver</td>
                 </tr>
       

@@ -11,6 +11,21 @@ class Client
         $array = array($name, $tel, $dir, $uid);
         return Db::queries($query, $array);
     }
+    public static function delete_client($id)
+    {
+        $query = "DELETE FROM client WHERE id=?";
+        $array = array($id);
+        return Db::queries($query, $array);
+
+    }
+    //Eliminar historial
+    public static function delete_historial($id)
+    {
+        $query = "DELETE FROM client WHERE id=?";
+        $array = array($id);
+        return Db::queries($query, $array);
+
+    }
 
     public static function get_clients()
     {
