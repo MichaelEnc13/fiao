@@ -44,8 +44,8 @@ if (isset($_POST['delete_client'])) :
    $done = Client::delete_client($id);
 
    if ($done['status']) :
-      //Eliminar historial
-      Client::delete_client($id);
+      Client::delete_total($id);
+      Client::delete_historial($id);
       echo  $done['status'];
    else :
       echo "ERR_" . $done['error'][1];

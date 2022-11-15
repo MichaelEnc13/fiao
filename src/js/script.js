@@ -153,19 +153,29 @@ $(document).on("click", function(e) {
             id = e.target.dataset.cid ;
             data ={ id:id,delete_client:true}
             console.log(data);
-            spinnerOn()
-            $.ajax({
-                type: "POST",
-                url: "api/controller/client.controller.php",
-                data,
-                success: function(res) {
-                    console.log(res)
-                    spinnerOff()
+            Swal.fire({
+                title: '¡Esta seguro de eliminar?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#04AA6D',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    spinnerOn()
+                    $.ajax({
+                        type: "POST",
+                        url: "api/controller/client.controller.php",
+                        data,
+                        success: function(res) {
+                            load_home()
+                            console.log(res)
+                            spinnerOff()
+                        }
+                    });
                 }
-            });
-
-
-
+            })
+           
             break;
         case "add_new_debt":
             form = document.querySelector(".form#newDebt");

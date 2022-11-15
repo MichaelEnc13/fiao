@@ -18,6 +18,7 @@ $version = "1.6.3";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/libs/spinner.min.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="src/css/style.css<?php echo "?version=".$version?>">
     <link rel="stylesheet" href="src/libs/all.min.css">
     <script src="src/libs/jquery.min.js"></script>

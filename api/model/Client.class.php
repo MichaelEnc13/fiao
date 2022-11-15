@@ -18,10 +18,18 @@ class Client
         return Db::queries($query, $array);
 
     }
+    //Eliminar total
+    public static function delete_total($id)
+    {
+        $query = "DELETE FROM total WHERE cid=?";
+        $array = array($id);
+        return Db::queries($query, $array);
+
+    }
     //Eliminar historial
     public static function delete_historial($id)
     {
-        $query = "DELETE FROM client WHERE id=?";
+        $query = "DELETE FROM sold WHERE cid=?";
         $array = array($id);
         return Db::queries($query, $array);
 
