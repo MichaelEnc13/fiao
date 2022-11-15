@@ -141,10 +141,7 @@ $(document).on("click", function(e) {
                                 break;
                         }
                     }
-<<<<<<< HEAD
 
-=======
->>>>>>> miguel
                     spinnerOff()
 
 
