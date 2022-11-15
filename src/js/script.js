@@ -25,6 +25,7 @@ $(document).on("click", function(e) {
     let form;
     let data;
 
+
     switch (id) {
 
         case "create_account":
@@ -120,7 +121,7 @@ $(document).on("click", function(e) {
             data = new FormData(form);
             data.append("addClient", true)
             console.log(form);
-            console.log(data.get("name"));
+            console.log(data);
             spinnerOn()
             $.ajax({
                 type: "POST",
@@ -140,10 +141,25 @@ $(document).on("click", function(e) {
                                 break;
                         }
                     }
-                    load_client_info(res)
                     spinnerOff()
 
 
+                }
+            });
+
+            break;
+        case "delete_client":
+            id = e.target.dataset.cid ;
+            data ={ id:id,delete_client:true}
+            console.log(data);
+            spinnerOn()
+            $.ajax({
+                type: "POST",
+                url: "api/controller/client.controller.php",
+                data,
+                success: function(res) {
+                    console.log(res)
+                    spinnerOff()
                 }
             });
 

@@ -38,6 +38,19 @@ if (isset($_POST['add_new_debt'])) :
       echo "ERR_" . $done['error'][1];
    endif;
 endif;
+if (isset($_POST['delete_client'])) :
+   $id = $_POST['id'];
+
+   $done = Client::delete_client($id);
+
+   if ($done['status']) :
+      //Eliminar historial
+      Client::delete_client($id);
+      echo  $done['status'];
+   else :
+      echo "ERR_" . $done['error'][1];
+   endif;
+endif;
  
 if (isset($_POST['apply_payment'])) :
    $cid = $_POST['cid'];
