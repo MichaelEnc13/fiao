@@ -150,16 +150,17 @@ $(document).on("click", function(e) {
 
             break;
         case "delete_client":
-            id = e.target.dataset.cid ;
-            data ={ id:id,delete_client:true}
-            console.log(data);
+            id = e.target.dataset.cid;
+            data = { id: id, delete_client: true }
+                //console.log(data);
             spinnerOn()
             $.ajax({
                 type: "POST",
                 url: "api/controller/client.controller.php",
                 data,
                 success: function(res) {
-                    console.log(res)
+                    load_home();
+                    // console.log(res)
                     spinnerOff()
                 }
             });
